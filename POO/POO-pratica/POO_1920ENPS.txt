@@ -1,0 +1,40 @@
+
+Al�nea 1) ----------------------------------
+
+Livro 1 tem 4 autores
+Livro 2 tem 3 autores
+TOTAL DE PRODUTOS DO MERCADO: 0
+Descri��o de electr1 :Frigor�fico:Bosch/XPTO
+AUTORES DE Livro 1: [Autor 1 (2000-), Autor 2 (2000-), Autor 3 (2010-), Autor 4 (2018-)]
+TOTAL DE PRODUTOS DO MERCADO: 563
+Unidades insuficientes! S� tem 3 em stock.
+Vendidos 100 unidades de "Livro 2". Passou a ter 351
+TOTAL DE PRODUTOS DO MERCADO: 463
+
+ePOO -  Loja Online
+    C�digo Produto                          Em Stock        PVP
+     L1026 Livro 1                               101      15,00
+     L1028 Livro 2                               351      23,00
+     E1030 Frigor�fico:Bosch/XPTO                  1     780,00
+     E1032 Fog�o:AEG/XYZ                           1     423,00
+     T1034 MOTOROLA/XWZ Model A                    3     560,00
+     E1036 Televisor:LG/MODEL X                    6     450,00
+
+Informa��o sobre Frigor�fico:
+{ tipo='Frigor�fico', classe='A', marca='Bosch', potencia='0', modelo='XPTO'}
+Informa��o sobre Telem�vel:
+{ marca='Motorola', modelo='XWZ Model A', notas='[Melhor Compra 2019, Em promo��o]'}
+
+Al�nea 2) ----------------------------------
+
+LO0P - Loja Orientada a Objetos 
+    C�digo Produto                          Em Stock        PVP
+     T1038  APPLE/ iPhone 8                        2    1000,00
+     T1040  NOKIA/ XXX                             3     700,00
+     E1042  Fogão: Siemens/ XPTO                   4     450,00
+     L1044  Livro 3                                6      20,00
+     L1046  Fundamentos de Programação em Java          7      27,00
+     L1048  Alice no País das Maravilhas           8      13,00
+     E1050  Televisor: NO BRAND/YYY               10     450,00
+
+[{ marca=' Apple', modelo=' iPhone 8', notas='[]'}, { marca=' Nokia', modelo=' XXX', notas='[]'}]

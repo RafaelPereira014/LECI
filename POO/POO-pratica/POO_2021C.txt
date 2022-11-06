@@ -1,0 +1,24 @@
+
+Alínea 1) ----------------------------------
+
+Sabores Gostosos vai visitar 4 restaurantes
+A Volta do Churrasco vai visitar 3 restaurantes
+RESTAURANTES DE Sabores Gostosos: [[ Restaurante [ nome=Carvao em Brasa, tipo='CHURRASQUEIRA], [ Restaurante [ nome=Super Marios, tipo='ITALIANO], [ Restaurante [ nome=Camarao Selvagem, tipo='MARISQUEIRA], [ Restaurante [ nome=Flower Taste, tipo='VEGETARIANO]]
+PASSEIOS DE VISITAS A Arquitetura Antiga: [Igreja Velha, Aqueduto]
+PASSEIOS DE VISITAS A Bares: [Copos e Conversas, Canequinhas]
+AGENCIA: Agencia turistica Abaixo as Calorias
+Atividades: [{ id='102', nome='Sabores Gostosos'}, { id='201', nome='Arquitetura Antiga'}, { id='100', nome='A Volta do Churrasco'}, { id='202', nome='Bares'}]'}
+TOTAL DE LOCAIS A VISITAR: 4
+
+Alínea 2) ----------------------------------
+
+AGENCIA: Agencia turistica Tours4Eating
+Atividades: [{ id='10', nome='FingerFoodPlaces'}, { id='12', nome='SnackBars'}, { id='20', nome='Igrejas'}, { id='21', nome='Canais'}, { id='11', nome='Pescarias'}, { id='22', nome='Departamentos'}]'}
+{ id='10', nome='FingerFoodPlaces'}
+{ id='12', nome='SnackBars'}
+{ id='20', nome='Igrejas'}
+{ id='21', nome='Canais'}
+{ id='11', nome='Pescarias'}
+{ id='22', nome='Departamentos'}
+-- LISTA DE LUGARES DA AGENCIA --
+FingerFoodPlaces, SnackBars, Igrejas, Canais, Pescarias, Departamentos, 
