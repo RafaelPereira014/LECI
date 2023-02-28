@@ -1,0 +1,78 @@
+
+
+Aula2 BD:
+
+2.1 Sistema de Gestão de Stocks de uma empresa.
+
+	entidades : Empresa,encomenda,produtos,fornecedor,"tipo de fornecedor"
+
+	atributos: Empresa-> codigo,nome,preço,taxa de IVA,
+			   Encomenda-> numero de encomenda,data da encomenda,unidades
+			   Fornecedor-> nome,numero de info fiscal,endereço,numero fax,condicoes pagamento,codigo tipo de fornecedor
+
+
+	relaçoões de BD: (codigo,nome,pproduto <-> encomenda <-> fornecedor <-> "tipo de fornecedor"
+	
+
+	grau: 3 relaçoes binarias
+
+	cardinalidade: produto<->encomenda #NxM , encomenda<->fornecedor #1x1 , fornecedor<->"tipo de fornecedor" #
+
+	obrigatoriedade: 
+
+
+
+2.2 Sistema de Prescrição Eletrónica de Medicamentos
+
+	entidades: prescrição,medico do SNS,paciente,fármaco,compainha farmaceutica,farmácia
+
+	atributos: prescrição-> numero unico de prescrição, data
+			   médico SNS -> numero de identificacao atribuido pelo SNS,nome , especialidade
+			   paciente-> numero de utente, nome, data de nascimento,endereço
+			   fármaco-> nome comercial( pode nao ser unico),formula,produzido por uma farmaceutica(nome unico entre todos os produtos da farmaceutica(sublinhado , é unico)
+			   farmaceutica-> numero de registo nacional,nome,endereço,telefone
+			   farmácia-> nif(unico), nome,endereço,telefone
+
+	informações:
+	• Os fármacos são vendidos em farmácias. Uma prescrição é processada por uma
+		única farmácia, i.e. não é possível adquirir parte dos fármacos de uma mesma
+		prescrição em farmácias distintas;
+	• Pretendemos guardar a data em que uma prescrição foi processada na farmácia. No
+	entanto, há situações em que os pacientes não fazem uso da prescrição;
+
+	relaçoões:
+
+
+
+2.3 SISTEMA DE CONFERENCIAS
+
+	entidades: artigo cientifico,autor,instituição,participantes(conferencia),estudante,n estudante
+
+	atributos:artigo cientifico->titulo, numero de registo
+			  autor-> nome,email,instituição
+			  instituição->nome,endereço
+			  participantes->nome,morada,mail,instituição,data de inscrição
+
+
+
+
+	informações:
+	• Uma pessoa pode ser autor de vários artigos;
+	• Os participantes estudantes necessitam de um comprovativo emitido pela
+		instituição de ensino para estarem isentos do custo da inscrição. O sistema de
+		informação deve registar a localização eletrónica do referido comprovativo;
+	• Para os participantes não estudantes é necessário registar a referência da transação
+	bancária que suportou o valor da inscrição. 
+
+
+	relações:
+
+
+2.4 Sistema de Gestão de um ATL
+
+	entidades:
+
+	atributos:
+
+
+
