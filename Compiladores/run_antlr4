@@ -1,0 +1,22 @@
+RUN ANTLR4:
+
+compilar
+
+antlr4 file.g4
+
+antlr4-javac file*.java
+
+echo "........." | antlr4-test
+
+
+
+------criar um visitor---------
+
+antlr4-visitor file nomevisitor String
+
+--------------------------------------------
+compilar e correr(com visitors)
+antlr4-main -v Execute -i -f
+antlr4-build
+antlr4-run
+

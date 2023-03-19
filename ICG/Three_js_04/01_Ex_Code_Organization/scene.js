@@ -14,6 +14,53 @@ const sceneElements = {
     renderer: null,
 };
 
+function createTree() {
+
+    // Creating a model by grouping basic geometries
+
+    // Cylinder centered at the origin
+
+    const cylinderRadius = 5;
+
+    const cylinderHeight = 20;
+
+    const cylinderGeometry = new THREE.CylinderGeometry(cylinderRadius, cylinderRadius, cylinderHeight, 32);
+
+    const redMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+
+    const cylinder = new THREE.Mesh(cylinderGeometry, redMaterial);
+
+    // Move base of the cylinder to y = 0
+
+    cylinder.position.y = cylinderHeight / 2.0;
+
+    // Cone
+
+    const baseConeRadius = 10;
+
+    const coneHeight = 30;
+
+    const coneGeometry = new THREE.ConeGeometry(baseConeRadius, coneHeight, 32);
+
+    const greenMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+
+    const cone = new THREE.Mesh(coneGeometry, greenMaterial);
+
+    // Move base of the cone to the top of the cylinder
+
+    cone.position.y = cylinderHeight + coneHeight / 2.0;
+
+    // Tree
+
+    var tree = new THREE.Group();
+
+    tree.add(cylinder);
+
+    tree.add(cone);
+
+    return tree;
+}
+
 
 // Functions are called
 //  1. Initialize the empty scene
@@ -92,5 +139,14 @@ function load3DObjects(sceneGraph) {
 
     // Set shadow property
     cylinderObject.castShadow = true;
+
+    var tree_1 = createTree();
+
+    tree_1.position.x = 10;
+
+    tree_1.position.z = 15;
+
+    sceneGraph.add(tree_1);
+
 }
 

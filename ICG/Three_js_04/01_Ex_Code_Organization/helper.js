@@ -6,6 +6,8 @@
 //
 // 		J. Madeira - April 2021
 
+
+
 const helper = {
 
     initEmptyScene: function (sceneElements) {
@@ -44,10 +46,19 @@ const helper = {
         spotLight.position.set(-5, 8, 0);
         sceneElements.sceneGraph.add(spotLight);
 
+        const spotLight2 = new THREE.SpotLight('rgb(100, 100, 100)', 2.0);
+        spotLight2.position.set(2, -8, 10);
+        sceneElements.sceneGraph.add(spotLight2);
+
         // Setup shadow properties for the spotlight
         spotLight.castShadow = true;
         spotLight.shadow.mapSize.width = 2048;
         spotLight.shadow.mapSize.height = 2048;
+
+        // Setup shadow properties for the spotlight
+        spotLight2.castShadow = true;
+        spotLight2.shadow.mapSize.width = 2000;
+        spotLight2.shadow.mapSize.height = 2000;
 
 
         // *********************************** //
