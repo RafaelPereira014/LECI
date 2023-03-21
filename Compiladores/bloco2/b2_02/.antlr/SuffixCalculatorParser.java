@@ -1,4 +1,4 @@
-// Generated from SuffixCalculator.g4 by ANTLR 4.12.0
+// Generated from /Users/rafaelpereira/Desktop/LECI/Compiladores/bloco2/b2_02/SuffixCalculator.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class SuffixCalculatorParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.12.0", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -88,7 +88,6 @@ public class SuffixCalculatorParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
-	@SuppressWarnings("CheckReturnValue")
 	public static class ProgramContext extends ParserRuleContext {
 		public TerminalNode EOF() { return getToken(SuffixCalculatorParser.EOF, 0); }
 		public List<StatContext> stat() {
@@ -101,19 +100,6 @@ public class SuffixCalculatorParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_program; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).enterProgram(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).exitProgram(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SuffixCalculatorVisitor ) return ((SuffixCalculatorVisitor<? extends T>)visitor).visitProgram(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ProgramContext program() throws RecognitionException {
@@ -152,7 +138,6 @@ public class SuffixCalculatorParser extends Parser {
 		return _localctx;
 	}
 
-	@SuppressWarnings("CheckReturnValue")
 	public static class StatContext extends ParserRuleContext {
 		public TerminalNode NEWLINE() { return getToken(SuffixCalculatorParser.NEWLINE, 0); }
 		public ExprContext expr() {
@@ -162,19 +147,6 @@ public class SuffixCalculatorParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_stat; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).enterStat(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).exitStat(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SuffixCalculatorVisitor ) return ((SuffixCalculatorVisitor<? extends T>)visitor).visitStat(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final StatContext stat() throws RecognitionException {
@@ -209,7 +181,6 @@ public class SuffixCalculatorParser extends Parser {
 		return _localctx;
 	}
 
-	@SuppressWarnings("CheckReturnValue")
 	public static class ExprContext extends ParserRuleContext {
 		public ExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -221,25 +192,10 @@ public class SuffixCalculatorParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	@SuppressWarnings("CheckReturnValue")
 	public static class ExprNumberContext extends ExprContext {
 		public TerminalNode Number() { return getToken(SuffixCalculatorParser.Number, 0); }
 		public ExprNumberContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).enterExprNumber(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).exitExprNumber(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SuffixCalculatorVisitor ) return ((SuffixCalculatorVisitor<? extends T>)visitor).visitExprNumber(this);
-			else return visitor.visitChildren(this);
-		}
 	}
-	@SuppressWarnings("CheckReturnValue")
 	public static class ExprSuffixContext extends ExprContext {
 		public Token op;
 		public List<ExprContext> expr() {
@@ -249,19 +205,6 @@ public class SuffixCalculatorParser extends Parser {
 			return getRuleContext(ExprContext.class,i);
 		}
 		public ExprSuffixContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).enterExprSuffix(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).exitExprSuffix(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SuffixCalculatorVisitor ) return ((SuffixCalculatorVisitor<? extends T>)visitor).visitExprSuffix(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ExprContext expr() throws RecognitionException {
@@ -307,7 +250,7 @@ public class SuffixCalculatorParser extends Parser {
 					setState(24);
 					((ExprSuffixContext)_localctx).op = _input.LT(1);
 					_la = _input.LA(1);
-					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 30L) != 0)) ) {
+					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << T__3))) != 0)) ) {
 						((ExprSuffixContext)_localctx).op = (Token)_errHandler.recoverInline(this);
 					}
 					else {
@@ -351,28 +294,16 @@ public class SuffixCalculatorParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u0007 \u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
-		"\u0002\u0007\u0002\u0001\u0000\u0005\u0000\b\b\u0000\n\u0000\f\u0000\u000b"+
-		"\t\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0003\u0001\u0010\b\u0001"+
-		"\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002"+
-		"\u0001\u0002\u0001\u0002\u0001\u0002\u0005\u0002\u001b\b\u0002\n\u0002"+
-		"\f\u0002\u001e\t\u0002\u0001\u0002\u0000\u0001\u0004\u0003\u0000\u0002"+
-		"\u0004\u0000\u0001\u0001\u0000\u0001\u0004\u001f\u0000\t\u0001\u0000\u0000"+
-		"\u0000\u0002\u000f\u0001\u0000\u0000\u0000\u0004\u0013\u0001\u0000\u0000"+
-		"\u0000\u0006\b\u0003\u0002\u0001\u0000\u0007\u0006\u0001\u0000\u0000\u0000"+
-		"\b\u000b\u0001\u0000\u0000\u0000\t\u0007\u0001\u0000\u0000\u0000\t\n\u0001"+
-		"\u0000\u0000\u0000\n\f\u0001\u0000\u0000\u0000\u000b\t\u0001\u0000\u0000"+
-		"\u0000\f\r\u0005\u0000\u0000\u0001\r\u0001\u0001\u0000\u0000\u0000\u000e"+
-		"\u0010\u0003\u0004\u0002\u0000\u000f\u000e\u0001\u0000\u0000\u0000\u000f"+
-		"\u0010\u0001\u0000\u0000\u0000\u0010\u0011\u0001\u0000\u0000\u0000\u0011"+
-		"\u0012\u0005\u0006\u0000\u0000\u0012\u0003\u0001\u0000\u0000\u0000\u0013"+
-		"\u0014\u0006\u0002\uffff\uffff\u0000\u0014\u0015\u0005\u0005\u0000\u0000"+
-		"\u0015\u001c\u0001\u0000\u0000\u0000\u0016\u0017\n\u0002\u0000\u0000\u0017"+
-		"\u0018\u0003\u0004\u0002\u0000\u0018\u0019\u0007\u0000\u0000\u0000\u0019"+
-		"\u001b\u0001\u0000\u0000\u0000\u001a\u0016\u0001\u0000\u0000\u0000\u001b"+
-		"\u001e\u0001\u0000\u0000\u0000\u001c\u001a\u0001\u0000\u0000\u0000\u001c"+
-		"\u001d\u0001\u0000\u0000\u0000\u001d\u0005\u0001\u0000\u0000\u0000\u001e"+
-		"\u001c\u0001\u0000\u0000\u0000\u0003\t\u000f\u001c";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\t\"\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\3\2\7\2\n\n\2\f\2\16\2\r\13\2\3\2\3\2\3\3\5\3\22\n\3\3\3\3"+
+		"\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\7\4\35\n\4\f\4\16\4 \13\4\3\4\2\3\6\5\2"+
+		"\4\6\2\3\3\2\3\6\2!\2\13\3\2\2\2\4\21\3\2\2\2\6\25\3\2\2\2\b\n\5\4\3\2"+
+		"\t\b\3\2\2\2\n\r\3\2\2\2\13\t\3\2\2\2\13\f\3\2\2\2\f\16\3\2\2\2\r\13\3"+
+		"\2\2\2\16\17\7\2\2\3\17\3\3\2\2\2\20\22\5\6\4\2\21\20\3\2\2\2\21\22\3"+
+		"\2\2\2\22\23\3\2\2\2\23\24\7\b\2\2\24\5\3\2\2\2\25\26\b\4\1\2\26\27\7"+
+		"\7\2\2\27\36\3\2\2\2\30\31\f\4\2\2\31\32\5\6\4\2\32\33\t\2\2\2\33\35\3"+
+		"\2\2\2\34\30\3\2\2\2\35 \3\2\2\2\36\34\3\2\2\2\36\37\3\2\2\2\37\7\3\2"+
+		"\2\2 \36\3\2\2\2\5\13\21\36";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

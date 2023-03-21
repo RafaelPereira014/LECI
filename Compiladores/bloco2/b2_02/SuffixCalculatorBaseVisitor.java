@@ -31,5 +31,12 @@ public class SuffixCalculatorBaseVisitor<T> extends AbstractParseTreeVisitor<T> 
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitExpr(SuffixCalculatorParser.ExprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExprNumber(SuffixCalculatorParser.ExprNumberContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitExprSuffix(SuffixCalculatorParser.ExprSuffixContext ctx) { return visitChildren(ctx); }
 }

@@ -22,9 +22,17 @@ public interface SuffixCalculatorVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStat(SuffixCalculatorParser.StatContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SuffixCalculatorParser#expr}.
+	 * Visit a parse tree produced by the {@code ExprNumber}
+	 * labeled alternative in {@link SuffixCalculatorParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpr(SuffixCalculatorParser.ExprContext ctx);
+	T visitExprNumber(SuffixCalculatorParser.ExprNumberContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ExprSuffix}
+	 * labeled alternative in {@link SuffixCalculatorParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprSuffix(SuffixCalculatorParser.ExprSuffixContext ctx);
 }
