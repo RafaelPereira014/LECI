@@ -25,10 +25,7 @@
 
 ### *e)* 
 
-```
-... Write here your answer ...
-```
-
+π Fname, Minit, Lname (σ Pno=null (employee ⟕ Ssn=Essn works_on))
 
 ### *f)* 
 
