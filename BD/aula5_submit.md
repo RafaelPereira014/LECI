@@ -29,16 +29,12 @@
 
 ### *f)* 
 
-```
-... Write here your answer ...
-```
+γ department.Dname; avg(employee.Salary) -> salarioMedio (σ employee.Sex = 'F' (department ⨝ (Dnumber = Dno) employee))
 
 
 ### *g)* 
 
-```
-... Write here your answer ...
-```
+σ Dependentes ≥ 3 (γ Fname, Minit, Lname; count(Essn) -> Dependentes (employee ⨝ (Ssn = Essn) dependent))
 
 
 ### *h)* 
@@ -56,30 +52,20 @@
 
 ### *a)*
 
-```
-... Write here your answer ...
-```
+ π nome (σ  fornecedor = null ( fornecedor ⟕ (nif = fornecedor) encomenda)) 
 
 ### *b)* 
 
-```
-... Write here your answer ...
-```
+γ nome; avg(item.unidades) -> unidades (produto ⨝ (codigo = codProd) item)
 
 
 ### *c)* 
 
-```
-... Write here your answer ...
-```
-
+γ ;avg(numProd)-> media (γ numEnc;count(codProd) -> numProd (item))
 
 ### *d)* 
 
-```
-... Write here your answer ...
-```
-
+ π fornecedor.nome, produto.nome, item.unidades (produto ⨝ (produto.codigo = codProd) (fornecedor ⨝ (nif = fornecedor) (encomenda ⨝ (numero = numEnc) item)))
 
 ## ​Problema 5.3
 
@@ -100,12 +86,9 @@
 σ numPresc = null (σ numRegFarm = 906 (farmaco) ⟗ (nome = nomeFarmaco) presc_farmaco)
 ### *e)* 
 
-```
-... Write here your answer ...
-```
+farmaceutica⨝(numRegFarm=numReg) (γ farmacia.nome, presc_farmaco.numRegFarm; count(presc_farmaco.nomeFarmaco)->FarmVendidos (presc_farmaco⨝(presc_farmaco.numPresc=prescricao.numPresc) ((farmacia⨝(nome=farmacia) prescricao))))
+
 
 ### *f)* 
 
-```
-... Write here your answer ...
-```
+σ Medicos>1 (γ paciente.nome; count(prescricao.numMedico)->Medicos (paciente⨝prescricao))
