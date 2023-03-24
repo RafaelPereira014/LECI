@@ -43,16 +43,13 @@
 
 ### *h)* 
 
-```
-... Write here your answer ...
-```
+π Fname, Minit, Lname, Ssn, Dno (σ Essn = null (dependent ⟖ (Essn = Ssn) (employee ⨝ (Ssn = Mgr_ssn) department)))
+
 
 
 ### *i)* 
 
-```
-... Write here your answer ...
-```
+π Fname, Minit, Lname, Address (employee ⨝ (σ Plocation = 'Aveiro' (project ⨝ works_on )) ⨝ (σ Dlocation ≠ 'Aveiro' (employee ⨝ (Dno = Dnumber) dept_location)))
 
 
 ## ​Problema 5.2
@@ -88,30 +85,19 @@
 
 ### *a)*
 
-```
-... Write here your answer ...
-```
+π nome (( paciente) ⨝ σ prescricao.numPresc = null (paciente ⟕ (prescricao)))
 
 ### *b)* 
 
-```
-... Write here your answer ...
-```
-
+γ especialidade;count(especialidade) -> numero ((prescricao) ⨝ (numMedico = numSNS) (medico))
 
 ### *c)* 
 
-```
-... Write here your answer ...
-```
-
+γ prescricao.farmacia;count(prescricao.farmacia)->numero (prescricao ⨝ (nome=prescricao.farmacia) farmacia)
 
 ### *d)* 
 
-```
-... Write here your answer ...
-```
-
+σ numPresc = null (σ numRegFarm = 906 (farmaco) ⟗ (nome = nomeFarmaco) presc_farmaco)
 ### *e)* 
 
 ```
