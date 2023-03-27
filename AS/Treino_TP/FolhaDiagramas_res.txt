@@ -1,0 +1,126 @@
+Diagrama 1 - Loja online que vende produtos horticolas
+
+A loja pode ou nao ter utilizadores e fornecedores.
+Os fornecedores criam catalogos que possuem produtos.
+Nao ha catalogos sem produtos , bem como nao ha catalogos que nao estejam associados a um fornecedor.
+O utilizador tem uma morada , faz encomendas , efetua pagamentos.
+A encomenda contem um ou mais produtos.
+Nos pagamentos , o pagamento de cada encomenda é feito separadamente.
+
+--------------------------------------------------------------------------
+Diagrama 2 - Consultas de saude oral
+
+O dentista pode pesquisar por um utente, consultar historia clinica , criar diagnosticos e definir planos de tratamento.
+O supervisor faz parte do secretatirado , e pode suspender um utente.
+O secretariado pode pesquisar por um utente e marcar uma consulta.
+O sistema de imagiologia medica pode consultar os exames de imagiologia.
+O dentista , caso o utente tenha exames de imagiologia ja feitos, pode consulta-los.
+
+-------------------------------------------------------------------
+Diagra 3 - sistema de gestao de projetos
+
+Um membro da equipa pode criar uma tarefa, projeto , pesquisar tarefas e estados, explorar o calendario do projeto,personalizar vista inicial,acompanhar evolucao das tarefas(notificacoes).
+Para que o membro da equipa possa pesquisar tarefas e estados , as mestas tem que estar atualizadas.
+O responsavel cria o projeto , e pode tambem edita-lo.
+Caso queira , o responsavel pode configurar a equipa ( edita la idk) ou entao configurar o modulo de gestao de tarefas ( pode ir mudando ao longo do projeto)
+
+------------------------------------------------------------------
+Diagrama 4 - gestao de projetos
+
+A empresa é constituida por escritorios e por departamentos.
+Os escritorios servem os departamentos.
+Um departamento é gerido por um empregado denominado o responsavel
+O departamento pode ter um ou mais empregados a trabalhar nele
+Um departamento pode ser responsavel por 0 ou mais projetos.
+Os projetos sao desenvolvidos pelos empregados.
+Um projeto pode ser interno ( desenvolvido pelos empregados presumo) ou externos , desenvolvido por um cliente.
+-----------------------------------------------------------------------------------------
+Diagrama 5 - realizaçao de cirurgias
+O Hospital assegura que ha varias especialidades.
+O bloco faz obrigatoriamente parte do hospital.
+Uma especialidade tem associada a si varios cirurgioes
+Uma especialidade tem certos procedimentos cirurgicos
+os procedimentos cirurgicos sao realizados nas cirurgias.
+Um cirurgiao é responsavel por varias cirurgias.
+Uma cirurgia é realizada apenas num bloco operatório.
+-------------------------------------------------------------
+Diagrama 6 - realização e trabalhos academicos
+
+O docente lanca um trabalho no elerning.
+O aluno realiza o trabalho.
+Caso o aluno desista, a atividade acaba.
+Caso o aluno complete o trabalho , entraga o mesmo no elearning.
+Quando chegar o fim do prazo de entrega do trabalho , o docente recolhe e avalia todos os trabalhos.
+O docente coloca as notas nas avaliacoes da uc, entrega os trabalhos com a respetiva correcao , o aluno ve o trabalho corrigido , recebe o feedback e a atividade acaba.
+---------------------------------------------------------------
+Diagrama 7 - colaboracao
+
+
+
+---------------------------------------
+Diagrama 8 - pedidos de propostas comerciais
+
+dado um novo pedido no site , o pedido é aberto e é lhe atribuido uma equipa de analise.
+caso haja uma uma equipa que seja valida, ou seja, tenha requisitos viaveis, é associada ao pedido e é confirmada.
+    -caso o contrato seja assinado,o pedido passa para uma fase de desenvolvimento.
+        -caso haja uma anulação do contrato , o mesmo é cancelado e a tarefa termina
+        -caso o trabalho seja entregue, é fechado e dada como terminada a tarefa
+    -caso nao houver contrado , o pedido é dado como cancelado e é terminada a tarefa.
+caso nao haja uma equipa valida , o pedido é recusado e termina a tarefa.
+-------------------------------------------
+
+Diagrama 9 - encomenda online de comida
+
+
+
+---------------------------------------
+Diagrama 10 - agendamento de reunioes de videoconferencia
+um utilizador registado , pode agendar/criar uma reuniao.
+    -pode ou nao criar uma reuniao a partir de um template
+pode pesquisar por uma reuniao caso ela exista
+pode editar uma reuniao
+    -pode criar uma votacao
+    -pode guarar como template
+pode convidar participantes , atraves do sistema de email
+dá inicio À reuniao no sistema de videoconferencia
+----------------------------------------------------
+Diagrama 11 - implementacao do metodo calcularTotal()
+
+para usar o metodo calcularTotal():
+    -para cada item da listaDeItens, é feito um getProduto(): produto 
+        -é feito um getPrecoUnitario() desse mesmo produto.
+        -é feito um getQuantidade() do produto em questao
+    -apos saber a quantidade e o preco de todos os produtos, é feito um desconto comercial de acordo com o cliente , e é retornado o valor de calcularTotal()
+
+-----------------------------------------------------------
+Diagrama 14 - funcionamento de um forno eletrico
+
+ao utilizar o forno:
+    -caso queiramos o forno a full power , escolhemos essa opcao 
+        -caso a meio da interacao desejemos meter a meio power , é tambem permitido
+    -caso queiramos o forno a half power , escolhemos essa opcap
+        -caso a meio da interacao desejemos meter o forno a full power , é permitido
+apos selecionarmos o power , selecionamos o tempo
+apos o setTime:
+    -podemos fehcar a porta e no display aparece "ready"
+    -caso nos esquecemos de meter algo no forno , podemos abrir a porta e é apresentado o "waiting"
+apos estar no estado ready , o forno comeca a operacionar.
+Caso a porta seja aberta , voltamos ao estado waiting
+A tarefa é dada como terminada caso:
+    -a operacao termine
+    -a operacao seja cancelada.
+---------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
