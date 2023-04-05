@@ -1,0 +1,73 @@
+Gestao de atletas de fisiculturismo
+
+
+
+
+
+
+
+
+Entidades: 
+		Atletas(nome,idade,genero,peso,data_insc,modalidade,categoria,n_atleta,fk_n_treinador,restrc_alimentacao,restrc_treino)
+		treinadores(nome,n_treinador,fk_N_atleta,modalidade,max_atletas)
+		ginasio(NIF,nome,equipamentos,fk_n_atleta)
+		plano_alimentacao(alimentacao,fk_n_atleta)
+		plano_treino(data,treino,fk_n_atleta)
+		foto(img,FK_n_atleta,FK_n_treinador, data)
+		Nutricionista()	
+
+
+
+
+
+
+----------Analise de requisitos---------
+	Problema
+
+	A organização de uma empresa de gestao de atletas de fisiculturismo pode ser um problema, tanto para os treinadores como para os atletas.
+	Por exemplo, os atletas pretendem competir mas pra isso precisam de ajuda na sua alimentacao e no seu treino.
+	Por outro lado, os treinadores precisam saber a modalidade à qual cada atleta vai participar , bem como restrições, o tipo de treino,há quanto temppo treina e a evolução corporal. Os nutricitionistas têm de ter em atenção o objetivo do atleta ( bulking, cutting) e as respetivas restrições alimentares, gostos, entre outros.
+	Ou seja, é necessário fazer um plano adequado a cada atleta, pois o corpo de cada fisiculturista reage e deve ser tratado de forma diferente.
+	Um gestor de atletas de fisiculturismo tem de ser bem planeado de forma a que os treinadores possam tirar o melhor rendimento dos seus atletas de maneira a que os seus atletas alcancem os seus objetivos.
+
+
+	Oportunidade
+
+	Surgiu assim uma oportunidade para desenvolver uma base de dados de modo a gerir atletas de fisiculturismo. Esta base de dados vai permitir guardar toda a informação acerca dos seus treinadores, nutricionistas e respetivos atletas. 
+	Será também possível visualizar os planos de treino e planos de alimentação bem como um portofolio associado a cada atleta de forma a analisar se os resultados estão de acordo com o expectado ou se é preciso fazer qualquer tipo de alteração, tanto na alimentação como no treino.
+
+	Requisitos
+
+		- os utilizadores deste sistema conseguem:
+			-Adicionar/editar/remover atletas e toda a informação associada aos mesmos
+			-Adicionar/editar/remover treinadores e toda a informação associada aos mesmos
+			-Adicionar/editar/remover nutricionistas e toda a informação acerca aos mesmos
+			-Adicionar/editar/remover planos de treino
+			-Adicionar/editar/remover planos de alimentação
+			-Adicionar/editar/remover fotos
+			-Adicionar/editar/remover ginásios
+			-Consultar planos de treino
+			-Consultar planos de alimentação
+			-Consultar as fotos
+			-Consultar a marcação de treinos com os treinadores
+			-Consultar a marcação de treinos com os nutricionistas
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
