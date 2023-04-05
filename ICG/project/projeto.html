@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Three.js Terrain with Houses</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r127/build/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r127/examples/js/controls/OrbitControls.js"></script>
+    <script>
+      // Set up the scene
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.set(0, 20, 50);
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      // Add lighting to the scene
+      var rightLight = new THREE.PointLight(0xffffff, 0.3, 0);
+      rightLight.position.set(10, 20, 7);
+
+      var leftLight = new THREE.PointLight(0xffffff, 0.3, 0);
+      leftLight.position.set(-10, 20, 7);
+
+      var ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+      scene.add(rightLight);
+      scene.add(leftLight);
+      scene.add(ambientLight);
+
+      //snow
+      var flakeCount = 20000;
+      var flakeGeometry = new THREE.TetrahedronGeometry(0.035); // radius
+      var flakeMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff });
+      var snow = new THREE.Group();
+
+      for (let i = 0; i < flakeCount; i++) {
+      var flakeMesh = new THREE.Mesh(flakeGeometry, flakeMaterial);
+      flakeMesh.position.set(
+          (Math.random() - 0.5) * 100,
+          (Math.random() - 0.5) * 50,
+          (Math.random() - 0.5) * 75
+      );
+      snow.add(flakeMesh);
+      }
+      
+      scene.add(snow);
+
+      var flakeArray = snow.children;
+
+      //mountains
+      const mountainGeometry = new THREE.ConeGeometry(5, 10,64);
+      const textureLoader = new THREE.TextureLoader();
+      const grassTexture = textureLoader.load('snow.jpg');
+      const mountainMaterial = new THREE.MeshBasicMaterial({ map: grassTexture });
+      const mountainMesh = new THREE.Mesh(mountainGeometry, mountainMaterial);
+      scene.add(mountainMesh);
+
+      // Create a cable car
+      const cableCarGeometry = new THREE.BoxGeometry(5, 5, 5);
+      const cableCarMaterial = new THREE.MeshBasicMaterial({ color: 0xFF0000 });
+      const cableCar = new THREE.Mesh(cableCarGeometry, cableCarMaterial);
+      cableCar.position.set(0, 10, 0); // Set the cable car's initial position
+      var speed = 0.10; // Speed of movement
+      var direction = new THREE.Vector3(1, 1, 1); // Direction of movement
+      scene.add(cableCar);
+
+      // Add orbit controls to the camera
+      var controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+      // Create the terrain
+      var loader = new THREE.TextureLoader();
+      loader.load('https://cdn.rawgit.com/mrdoob/three.js/r127/examples/textures/floors/FloorsCheckerboard_S_Diffuse.jpg', function (texture) {
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set(64, 64);
+        var geometry = new THREE.PlaneGeometry(50, 50, 150, 150);
+        var material = new THREE.MeshPhongMaterial({ map: texture });
+        var terrain = new THREE.Mesh(geometry, material);
+        terrain.rotation.x = -Math.PI / 2;
+        terrain.position.y = -15;
+        scene.add(terrain);
+      });
+
+      
+      // Create houses
+      var houseCount = 7;
+      var houseGeometry = new THREE.BoxGeometry(3, 3, 3); // size of house
+      var houseMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
+      var houses = new THREE.Group();
+
+      for (var i = 0; i < houseCount; i++) {
+        var houseMesh = new THREE.Mesh(houseGeometry, houseMaterial);
+        houseMesh.position.set(
+          (Math.random() - 0.5) * 40,
+          -12,
+          (Math.random() - 0.5) * 40
+        );
+        houses.add(houseMesh);
+      }
+
+      scene.add(houses);
+
+      // Render the scene
+      var animate = function() {
+        requestAnimationFrame(animate);
+
+        // Update the cube's position
+        cableCar.position.x += direction.x * speed;
+        cableCar.position.y += direction.y * speed;
+        cableCar.position.z += direction.z * speed;
+
+        // Reverse direction if the cableCar goes out of bounds
+      
+        if (cableCar.position.y > 10 ) {
+            direction.y *= -1;
+        }
+       
+        for (i = 0; i < flakeArray.length / 2; i++) {
+            flakeArray[i].rotation.y += 0.01;
+            flakeArray[i].rotation.x += 0.02;
+            flakeArray[i].rotation.z += 0.03;
+            flakeArray[i].position.y -= 0.018;
+            if (flakeArray[i].position.y < -4) {
+              flakeArray[i].position.y += 10;
+            }
+          }
+          for (i = flakeArray.length / 2; i < flakeArray.length; i++) {
+            flakeArray[i].rotation.y -= 0.03;
+            flakeArray[i].rotation.x -= 0.03;
+            flakeArray[i].rotation.z -= 0.02;
+            flakeArray[i].position.y -= 0.016;
+            if (flakeArray[i].position.y < -4) {
+              flakeArray[i].position.y += 9.5;
+            }
+        
+            snow.rotation.y -= 0.0000002;
+          }
+
+        controls.update();
+
+        renderer.render(scene, camera);
+      };
+
+      animate();
+    </script>
+  </body>
+</html>
