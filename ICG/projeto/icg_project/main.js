@@ -11,48 +11,10 @@ const loader2 = new GLTFLoader();
 const ladyski = new GLTFLoader();
 const snowy = new GLTFLoader();
 const road = new GLTFLoader();
-
-function generateRandomPositions(numModels) {
-  // Set the bounds for the random positions
-  const xMin = -10;
-  const xMax = 10;
-  const yMin = -5;
-  const yMax = 5;
-  const zMin = -10;
-  const zMax = 10;
-
-  // Create an array to store the GLTF models
-  const models = [];
-
-  // Generate numModels random positions
-  for (let i = 0; i < numModels; i++) {
-    // Generate random coordinates within the bounds
-    const x = Math.random() * (xMax - xMin) + xMin;
-    const y = Math.random() * (yMax - yMin) + yMin;
-    const z = Math.random() * (zMax - zMin) + zMin;
-
-    // Create a Vector3 object with the random coordinates
-    const position = new THREE.Vector3(x, y, z);
-
-    // Load the GLTF model and set its position
-    const loader = new THREE.GLTFLoader();
-    loader.load('assets/snow_road/scene.gltf', function(gltf) {
-      const model = gltf.scene;
-
-      // Set the position of the model
-      model.position.copy(position);
-
-      // Add the model to the models array
-      models.push(model);
-    });
-  }
-
-  // Return the array of GLTF models
-  return models;
-}
-
-
-
+const snow_rock = new GLTFLoader();
+const snow_ground = new GLTFLoader();
+const snow_house = new GLTFLoader();
+const cars = new GLTFLoader();
 
 
 
@@ -75,7 +37,7 @@ function init(){
  var ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
  scene.add(ambientLight);
 
- const spotLight = new THREE.SpotLight(0xffffff, 2);
+ const spotLight = new THREE.SpotLight(0xffffff, 0.8);
  scene.add(spotLight);
 
 spotLight.angle = 0.8;
@@ -114,21 +76,6 @@ scene.add(SpotLightHelper);
  const line = new THREE.Line( geometry, material );
  scene.add( line );
 
- // Create a cable car
- const cableCarGeometry = new THREE.BoxGeometry(2, 2, 2);
- const cableCarMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
- const cableCar = new THREE.Mesh(cableCarGeometry, cableCarMaterial);
- const cableCarGeometry2 = new THREE.BoxGeometry(2, 2, 2);
- const cableCarMaterial2 = new THREE.MeshBasicMaterial({ color: 0xFF0000 });
- const cableCar2 = new THREE.Mesh(cableCarGeometry2, cableCarMaterial2);
- cableCar.position.set(-10, -6, -5); // Set the cable car's initial position
- cableCar2.position.set(10,-12,12)
- var speed = 0.05; // Speed of movement
- var direction = new THREE.Vector3(2, -1, 1.69); // Direction of movement
- var direction2 = new THREE.Vector3(2, 1, 1.69); // Direction of movement
- scene.add(cableCar);
- scene.add(cableCar2);
-
  // Add orbit controls to the camera
  var controls = new OrbitControls(camera, renderer.domElement);
 
@@ -154,13 +101,13 @@ scene.add(SpotLightHelper);
     model.rotation.set(0,1.6,0)
    });
 
-  //  ladyski.load("asserts/skiing_lady/scene.gltf", function(gltf){
-  //   const model = gltf.scene;
-  //   scene.add(model)
-  //   model.scale.set(1,1,1)
-  //   model.position.set(3,-6,0)
-  //   model.rotation.set(0,1.6,0)
-  //  });
+   ladyski.load("asserts/skiing_lady/scene.gltf", function(gltf){
+    const model = gltf.scene;
+    scene.add(model)
+    model.scale.set(1,1,1)
+    model.position.set(-16,-13,-5)
+    model.rotation.set(0,1.6,0)
+   });
 
    snowy.load("asserts/snowy/scene.gltf", function(gltf){
     const model = gltf.scene;
@@ -180,12 +127,69 @@ scene.add(SpotLightHelper);
     model.rotation.set(0,3,0)
    });
 
-    // const models = generateRandomPositions(5);
+   snow_rock.load("asserts/snow_rock/scene.gltf", function(gltf){
+    const model = gltf.scene;
+    scene.add(model)
+    model.scale.set(0.7,0.7,0.7)
+    model.position.set(-13,-16.5,-10)
+    model.rotation.set(0,4.5,0)
+   });
 
-    // // Add each model to the scene
-    // models.forEach(function(model) {
-    //   scene.add(model);
-    // });
+   snow_ground.load("asserts/patch_of_old_snow/scene.gltf", function(gltf){
+    const model = gltf.scene;
+    scene.add(model)
+    model.scale.set(50,50,50)
+    model.position.set(-5,-15,-4)
+    model.rotation.set(0,0,0)
+   });
+
+   snow_house.load("asserts/x_house/scene.gltf", function(gltf){
+    const model = gltf.scene;
+    scene.add(model)
+    model.scale.set(1.5,1.5,1.5)
+    model.position.set(15,-14,-10)
+    model.rotation.set(0,0,0)
+   });
+
+  const models = [];
+  let x = 15;
+
+
+  road.load("asserts/snowy_road/scene.gltf", function(gltf){
+      for (let i = 0; i < 38; i++) {
+          const model = gltf.scene.clone();
+          model.scale.set(2, 2, 2);
+          const y = x--;
+          model.position.set(y,-13.5,23);
+          model.rotation.set(0, 1.6, 0);
+          models.push(model);
+          scene.add(model);
+      }
+      for (let i = 0; i <48; i++) {
+        const model = gltf.scene.clone();
+        model.scale.set(2, 2, 2);
+        const y = x++;
+        model.position.set(y,-13.5,23);
+        model.rotation.set(0, 1.6, 0);
+        models.push(model);
+        scene.add(model);
+    }
+  });
+
+  cars.load("asserts/cars/scene.gltf", function(gltf){
+    const model = gltf.scene;
+    scene.add(model)
+    model.scale.set(1,1,1)
+    model.position.set(3,-13.7,23)
+    model.rotation.set(0,3.1,0)
+   });
+
+
+
+
+
+
+   
 
 
    
@@ -205,28 +209,12 @@ scene.add(SpotLightHelper);
    houses.add(houseMesh);
  }
 
- scene.add(houses);
 
  // Render the scene
  var animate = function() {
    requestAnimationFrame(animate);
 
-   // Update the cube's position
-   cableCar.position.x += direction.x * speed;
-   cableCar.position.y += direction.y * speed;
-   cableCar.position.z += direction.z * speed;
-
-  
-   // Reverse direction if the cableCar goes out of bounds
- 
-   if (cableCar.position.y < -16 ) {
-       //restart
-       //wait 5 seconds
-       cableCar.position.set(-10, -6, -5);
-   }
-   if(cableCar2.position.y > 12){
-       cableCar2.position.set(10,-12,12)
-   }
+   
   
    for (i = 0; i < flakeArray.length / 2; i++) {
        flakeArray[i].rotation.y += 0.01;
