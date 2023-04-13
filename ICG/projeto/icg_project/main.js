@@ -15,6 +15,7 @@ const snow_rock = new GLTFLoader();
 const snow_ground = new GLTFLoader();
 const snow_house = new GLTFLoader();
 const cars = new GLTFLoader();
+const tower = new GLTFLoader();
 
 
 
@@ -70,8 +71,8 @@ scene.add(SpotLightHelper);
  // Create a line between the two mountains
  const material = new THREE.LineBasicMaterial( { color: 0x000000 } );
  const points = [];
- points.push( new THREE.Vector3( - 10, -6, -5 ) );
- points.push( new THREE.Vector3( 8, -13, 10 ) );
+ points.push( new THREE.Vector3( -20, 3, -19 ) );
+ points.push( new THREE.Vector3( 15, -1, 35 ) );
  const geometry = new THREE.BufferGeometry().setFromPoints( points );
  const line = new THREE.Line( geometry, material );
  scene.add( line );
@@ -93,13 +94,7 @@ scene.add(SpotLightHelper);
    scene.add(terrain);
  });
 
-    loader2.load("asserts/mountain/scene.gltf", function(gltf){
-    const model = gltf.scene;
-    scene.add(model)
-    model.scale.set(0.01,0.01,0.01)
-    model.position.set(0,-10,0)
-    model.rotation.set(0,1.6,0)
-   });
+  
 
    ladyski.load("asserts/skiing_lady/scene.gltf", function(gltf){
     const model = gltf.scene;
@@ -109,23 +104,35 @@ scene.add(SpotLightHelper);
     model.rotation.set(0,1.6,0)
    });
 
-   snowy.load("asserts/snowy/scene.gltf", function(gltf){
-    const model = gltf.scene;
-    scene.add(model)
-    model.scale.set(20,20,20)
-    model.position.set(-11,-11,-6)
-    model.rotation.set(0,1,0)
-   });
+  // Define the two points
+const startPosition = new THREE.Vector3(-20, 0, -19);
+const endPosition = new THREE.Vector3(15, -3, 35);
 
-   const teleferico = new GLTFLoader();
+// Define the teleferico model
+const teleferico = new GLTFLoader();
+teleferico.load("asserts/teleferico/scene.gltf", function(gltf){
+  const model = gltf.scene;
+  scene.add(model);
+  model.scale.set(1,1,1);
+  model.position.copy(startPosition);
+  model.rotation.set(0,2.15,0);
 
-   teleferico.load("asserts/teleferico/scene.gltf", function(gltf){
-    const model = gltf.scene;
-    scene.add(model)
-    model.scale.set(1,1,1)
-    model.position.set(-10,-2,-5)
-    model.rotation.set(0,3,0)
-   });
+  // Define the animation loop
+  const duration = 20000; // Duration of one back-and-forth animation cycle in ms
+  let startTime = null;
+  function animateTeleferico(time) {
+    if (!startTime) startTime = time;
+    const progress = (time - startTime) % duration / duration; // Progress through the animation cycle as a value between 0 and 1
+    const position = new THREE.Vector3().lerpVectors(startPosition, endPosition, progress); // Interpolate between the start and end positions
+    model.position.copy(position);
+    requestAnimationFrame(animateTeleferico);
+  }
+
+  // Start the animation loop
+  requestAnimationFrame(animateTeleferico);
+});
+
+
 
    snow_rock.load("asserts/snow_rock/scene.gltf", function(gltf){
     const model = gltf.scene;
@@ -150,6 +157,18 @@ scene.add(SpotLightHelper);
     model.position.set(15,-14,-10)
     model.rotation.set(0,0,0)
    });
+
+   tower.load("asserts/watch_tower/scene.gltf", function(gltf){
+    const model = gltf.scene;
+    scene.add(model)
+    model.scale.set(0.015,0.015,0.015)
+    model.position.set(-20,-16.5,-19)
+    model.rotation.set(0,4,0)
+   });
+
+   
+
+
 
   const models = [];
   let x = 15;
@@ -186,13 +205,6 @@ scene.add(SpotLightHelper);
 
 
 
-
-
-
-   
-
-
-   
  // Create houses
  var houseCount = 3;
  var houseGeometry = new THREE.BoxGeometry(3, 3, 3); // size of house
@@ -214,7 +226,6 @@ scene.add(SpotLightHelper);
  var animate = function() {
    requestAnimationFrame(animate);
 
-   
   
    for (i = 0; i < flakeArray.length / 2; i++) {
        flakeArray[i].rotation.y += 0.01;
