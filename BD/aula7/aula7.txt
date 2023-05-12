@@ -1,0 +1,10 @@
+# BD: Guião 7
+
+
+## ​7.2 
+ 
+### *a)*
+A relação está na primeira 1FN, pois nao contem atributos compostos.
+Pode estar na 2FN pois tem dependencias parciais ( Nome_Autor -> Afiliacao_autor).
+
+```
